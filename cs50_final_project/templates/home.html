@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WeConnect: Home
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="/static/style.css">
+
+    <div id="posts" class="text-center mx-auto rounded-3 mt-lg-5 mb-4" style="width: 40%; height: 100%;">
+
+        {% for i in posts %}
+            <div id="post" class="border border-solid border-3 rounded-3 mt-3" style="border-color: rgb(149, 149, 149);">
+
+
+                <div style="overflow: auto;">
+                    <a href="{{ url_for('show_person_profile', user_id=i.user_id) }}"><img src="/static/uploadings/{{i.img_filename}}" class="rounded-circle text-start" style="width: 90px; height: 90px; text-align: left; float: left; margin-right: 10px"></a>
+                    <a href="{{ url_for('follow', user_id=i.user_id) }}"><button id="follow" style="text-align: right; float: right; margin-right: 55%; margin-top: 30px;" class="bg-primary">Follow</button></a>
+
+                    <h5 style="margin-top: 30px; margin-right: 60%;" class="fs-4">{{i.name}}</h5>
+                </div>
+
+
+                <h6 class="mt-2">{{i.legend}}</h6>
+
+                <div id="photo">
+                    <img class="mt-2 mb-2 rounded-3 border border-solid border-2" style="width: 90%; height: 80%;" src="/static/uploadings/{{i.filename}}">
+                </div>
+
+                <div class="container mb-4">
+                    <div class="row" style="margin-left: 50px;">
+                        
+                        <div class="col">
+                            <div style="cursor: pointer; height: 30px; width: 30px;"><a href="{{url_for('like_post', post_id=i.post_id)}}"><img class="w-100 h-100" src="/static/like_img.png"></a>{{i.likes}}</div>
+                        </div>
+
+                        <div class="col mt-1">
+                            <div style="cursor: pointer; height: 30px; width: 30px;"><a href="{{url_for('dislike_post', post_id=i.post_id)}}"><img class="w-100 h-100" src="/static/dislike_img.png"></a>{{i.dislikes}}</div>
+                        </div>
+
+                        <div class="col">
+                            <div style="cursor: pointer; height: 30px; width: 30px;"><a href="{{ url_for('render_comment', post_id=i.post_id) }}"><img class="w-100 h-100" src="/static/comment.png"></a>{{i.comment_number}}</div>
+                        </div>
+
+                        <div class="col">
+                            <div onclick="shareWatsApp()" style="cursor: pointer; width: 30px; height: 30px;"><a href="share"><img class="w-100 h-100" src="/static/share.png"></a></div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+
+            <script>
+                function shareWatsApp(){
+                    let url = encodeURIComponent(window.location.href)
+                    window.open("https://api.whatsapp.com/send?text=" + "" + "%20" + url)
+
+                }
+            </script>
+
+        {% endfor %}
+
+
+    </div>
+
+
+{% endblock %}
+
+

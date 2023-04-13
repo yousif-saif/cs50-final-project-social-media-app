@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Post
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/post.css">
+
+{% if id != None %}
+    <form action="/change_profile" method="POST" enctype="multipart/form-data">
+        <div class="text-center mx-auto">
+            <div id="upload"><input type="file" name="file" id="file" class="mt-2"></div>
+            <button class="btn btn-primary mt-3">Change</button>
+
+        </div>
+        
+    </form>
+    <h4 class="text-danger mt-4 text-center mx-auto">{{error_message}}</h4>
+{% endif %}
+
+{% endblock %}

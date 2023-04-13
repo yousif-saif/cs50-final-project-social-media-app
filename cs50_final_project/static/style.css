@@ -1,0 +1,50 @@
+#buttons a{
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-family: system-ui;
+    letter-spacing: 1px;
+    margin-top: 2.5%;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#post_btn{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#buttons{
+    text-align: right;
+    margin-right: 10%;
+}
+
+#logo{
+    height: 90px;
+    width: 90px;
+    text-align: left;
+    margin-right: 35%;
+
+}
+
+button{
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-family: system-ui;
+    letter-spacing: 1px;
+    margin-top: 2.5%;
+    font-size: 20px;
+    
+}
+
+#home{
+    margin-right: 10%;
+}
+
+#comment{
+    position: fixed;
+    top: 30%;
+    left: 30%;
+}

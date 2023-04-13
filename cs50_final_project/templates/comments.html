@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WeConnect: Comments
+{% endblock %}
+
+{% block content %}
+
+{% for i in comments %}
+    <div id="comment_div" class="border border-solid border-3 rounded-3 mt-3" style="border-color: rgb(149, 149, 149); width: 90%; margin-left: 5%;">
+
+        <div style="overflow: auto;">
+            <img src="/static/uploadings/{{i.img_filename}}" class="rounded-circle text-start" style="width: 50px; height: 50px; text-align: left; float: left; margin-right: 10px">
+            <h6 style="margin-top: 10px; margin-right: 70%;" class="fs-5">{{i.name}}</h6>
+
+        </div>
+
+
+        <h6 class="mt-2" style="margin-left: 50px;">{{i.content}}</h6>
+
+        <div class="container mb-4">
+            <div class="row" style="margin-left: -0.1%;">
+                
+                <div class="col">
+                    <div style="cursor: pointer; height: 30px; width: 30px;"><a href="{{url_for('like_comment', comment_id=i.comment_id)}}"><img class="w-100 h-100" src="/static/like_img.png"></a><p style="margin-left: 10px;">{{i.likes}}</p></div>
+                </div>
+
+                <div class="col mt-1">
+                    <div style="cursor: pointer; height: 30px; width: 30px; margin-left: -80%;"><a href="{{url_for('dislike_comment', comment_id=i.comment_id)}}"><img class="w-100 h-100" src="/static/dislike_img.png"></a><p style="margin-left: 10px;">{{i.dislikes}}</p></div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+
+{% endfor %}
+
+<form action="/post_comment" method="post">
+    <div id="comment" style="position: fixed; top: 85%;">
+        <div class="col-md-3 mx-auto" style="margin-top: 5%;">
+            <div class="text-center">
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control mb-2 rounded-0 bg-light" name="content" style="width: 1500%; margin-left: -490%;" autofocus placeholder="Type a Comment...">
+
+                    </div>
+
+                    <div class="col-md-4">
+                            <button class="btn btn-primary mb-5" style="margin-left: 3700%;">Comment</button>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+

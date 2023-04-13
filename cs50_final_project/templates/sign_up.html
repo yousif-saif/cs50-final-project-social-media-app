@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WeConnect: Log In
+{% endblock %}
+
+{% block content %}
+
+        <div class="text-center mx-auto" style="margin-top: 30px;"><img style="width: 100px; height: 100px;" class="rounded-circle" src="/static/logo.png"></div>
+
+        <form action="/sign_up" method="post">
+            <h1 class="text-center" style="margin-top: 3%;">Sign Up</h1>
+
+            <div class="col-md-3 mx-auto" style="margin-top: 5%;">
+                <div class="text-center">
+                    <input type="text" name="name" class="form-control mb-2 rounded-0 bg-light" autofocus placeholder="Name">
+                    <input type="email" name="email" class="form-control mb-2 rounded-0 bg-light" placeholder="Email">
+                    <input type="password" name="password" class="form-control mb-2 rounded-0 bg-light" placeholder="Password">
+                    <button class="btn btn-primary rounded-0 w-100 mt-3">Sign Up</button>
+                </div>
+            </div>
+        </form>
+
+    <p class="text-center fs-6" style="text-align: center; margin-top: 20px;">Have An Account? <a href="/login">Log In</a></p>
+    <p class="text-center fs-3" style="color: #dc3545;">{{error_message}}</p>
+
+
+{% endblock %}
+

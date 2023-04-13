@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WeConnect: Profile
+{% endblock %}
+
+{% block content %}
+
+{% for i in user %}
+    <div class="mx-auto text-center"><img src="/static/uploadings/{{i.img_filename}}" style="border-radius: 50%; width: 100px; height: 100px;"></div>
+        <p class="text-center mx-auto" style="font-weight: bold; font-size: 20px;">{{i.username}}</p>
+
+        <p class="text-center mx-auto" style="color:rgb(198, 198, 198); font-size: 15px; font-weight: bold; margin-top: -10px;">{{i.email}}</p>
+        
+        <p style="margin: 10px;" class="text-center mx-auto">You created this account in: {{i.account_date}}</p>
+        <!-- <button style="margin: 10px;" class="btn btn-primary">Change Profile Picture</button> -->
+        <div>
+            <p class="text-center" style="font-weight: bold;">{{i.followers}} Followers</p>
+        </div>
+        <div class="mt-4" style="height: 3px; background-color: rgb(198, 198, 198);"><h6 class="opacity-0">.</h6></div>
+
+        <div style="margin: 10px;">
+            <p>The total number of posts: {{posts_count}}</p>
+            <p>The total number of likes: {{likes_sum}}</p>
+            <p>The total number of dislikes: {{dislikes_sum}}</p>
+            <p>The total number of comments: {{comment_sum}}</p>
+
+            <a href="/render_change_profile"><button class="btn btn-primary">Change profile picture</button></a>
+        </div>
+        
+
+    
+{% endfor %}
+{% endblock %}
+
